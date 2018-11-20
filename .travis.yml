@@ -1,0 +1,47 @@
+### CI 定义stages
+language: node_js
+services: docker
+
+node_js:
+    - "lts/*"
+
+.tmp_artifacts:
+    artifacts: &artifacts_definnation
+        when: on_failure
+        name: "$CI_JOB_NAME_$CI_COMMIT_REF_NAME"
+        untracked: true
+        expire_in: 1 week
+
+stages:
+    - build
+    - test
+
+before_script:
+    - npm install
+
+# 定义Job
+
+# test:dev_task: 
+#     stage: test
+#     artifacts: *artifacts_definnation
+#     script:
+#         - echo "test stage"
+
+build:prod_task: 
+    stage: build
+    artifacts: *artifacts_definnation
+    script:
+        - npm run build
+
+deploy:
+    provider: release
+
+
+cache:
+    directories:
+        - node_modules
+        - $HOME/.cache/electron
+        = $HOME/.cache/electron-builder
+
+before-cache:
+    - rm -rf $HOME/.cache/electron-builder/wine

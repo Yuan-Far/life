@@ -1,0 +1,28 @@
+@prefix-cls: xy-bottom;
+
+.@{prefix-cls}-wrapper {
+    width: 100%;
+
+    > div {
+        float: left;
+        width: e("calc(35% - 1px)");
+        border-right: 2px solid rgba(151, 151, 151, 0.2);
+
+        &:last-child {
+            width: e("calc(30% - 2px)");
+            border-right: none;
+        }
+    }
+
+    &-bulletin {
+
+    }
+
+    h3 {
+        font-size: 30px;
+        color: #000;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 4;
+    }
+}
