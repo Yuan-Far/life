@@ -43,6 +43,7 @@ export const withErrorBoundary  = (WrappedComponent: React.ComponentType<{}>) =>
             const {
                 error
             } = this.state;
+
             if (error) {
                 return <WrappedComponent {...otherProps} />;
             }

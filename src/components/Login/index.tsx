@@ -1,5 +1,4 @@
 import * as React from 'react';
-import oAuthLogin from '../../utils/oAuth';
 import LoginBackground from './modules/LoginBackground/index';
 
 import './style.less';
@@ -31,7 +30,6 @@ class Login extends React.Component<{}, State> {
     }
     private handleOauthLogin = () => {
         console.info('sdf');
-        oAuthLogin();
     }
     render() {
         const prefixCls = 'login';
@@ -52,7 +50,7 @@ class Login extends React.Component<{}, State> {
                         ?
                         `${prefixCls}-content ${prefixCls}-visible` : `${prefixCls}-content`}
                     >
-                        <h3>Xiyou Mobile</h3>
+                        <h3>Life</h3>
                         <div className={`${prefixCls}-input ${prefixCls}-user`}>
                             <i className="icon icon-user"/>
                             <input
