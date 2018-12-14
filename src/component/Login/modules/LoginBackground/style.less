@@ -1,0 +1,72 @@
+@prefix-cls: login-module-background;
+@borderColor: transparent transparent transparent #111 !important;
+
+.@{prefix-cls} {
+    position: relative;
+
+    &-tri {
+        list-style: none;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 200px 0 0 200px;
+        border-color: transparent transparent transparent rgba(0, 0, 0, 0.03);
+    }
+
+    .login-list(4);
+    .login-tri(6);
+    .login-tri-info(8);
+
+    .login-list(@count, @i: 2) when (@i <= @count) {
+        &-tri-@{i} {
+            position: absolute;
+            top: (@i - 1) * 200px;
+            left: (@i - 1) * 200px;
+        }
+
+        .login-list(@count, (@i + 1));
+    }
+
+    .login-tri(@count, @i: 4) when (@i <= @count) {
+        &-tri-@{i} {
+            position: absolute;
+            top: (@i - 5) * 200px;
+            right: abs(@i - 7) * 200px;
+        }
+
+        .login-tri(@count, (@i + 1));
+    }
+
+    .login-tri-info(@count, @i: 7) when (@i <= @count) {
+        &-tri-@{i} {
+            position: absolute;
+            top: (@i - 7) * 200px;
+            right: abs(@i - 8) * 200px;
+        }
+
+        .login-tri-info(@count, (@i + 1));
+    }
+
+    &-tri-3 {
+        left: 0 !important;
+        border-color: @borderColor;
+    }
+    &-tri-4 {
+        top: 600px;
+        left: 200px !important;
+    }
+    &-tri-9 {
+        position: fixed;
+        bottom: 100px;
+        right: 0;
+        border-color: @borderColor;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 100px solid #111;
+        }
+    }
+}
