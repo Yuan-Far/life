@@ -4,7 +4,7 @@ import {
     Route,
 } from 'react-router-dom';
 import Login from './components/Login';
-import LifeIndex from './component/LifeIndex/index';
+import LifeIndex from './components/LifeIndex/index';
 
 const App = () => (
     <Switch>
